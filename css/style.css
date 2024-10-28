@@ -1,0 +1,156 @@
+/* Defines the animation for the logo */
+@keyframes logoAnimation{
+    from{
+        width: 25px;
+        opacity: 0;
+    }
+    to{
+        width: 475px;
+        opacity: 1;
+    }  
+}
+
+/* Applies the defined animation to the logo */
+#logo{
+    animation: logoAnimation 5s;
+}
+
+/* Set the font family, background image and background color according to instructions */
+body{
+    font-family: 'Poppins', serif;
+    background-image: url('/images/concrete_seamless.png');
+    background-color: #f1f1f1;
+}
+
+/* header */
+header {
+    display: flex; /*display in flex*/
+    align-items: center; /*headers vertically centered*/
+    flex-direction: column;  /*headers align vertically*/
+  }
+ 
+/* nav_links */
+.nav_links {
+    display: flex; /*display in flex*/
+    align-items: center; /*nav_links vertically centered*/
+    flex-direction: column; /*nav_links align vertically*/
+  }
+
+/* nav_links stay the same color after being visited */
+a:visited{
+    color: blue;
+  }
+
+/* cards */
+.card{
+    display: flex; /*display in flex*/
+    flex-basis: 450px; /* initial size of 450 px */
+    flex-direction: column; /* cards laid out as columns */
+    border-radius: 50px 50px 0 0; /* rounded corners on top left and top right */
+    flex-wrap: wrap; /* cards are allowed to wrap */
+}
+
+/* headers inside cards */
+.card > header{
+    background-color: #288088; 
+    border: 2px solid  #45ADAD; 
+    border-radius: 50px 50px 0 0; /* rounded corners on top left and top right */
+    padding: 20px 0 20px 0; /* padding according to instructions */
+}
+
+/* pricing */
+.pricing {
+    display: flex; /*display in flex*/
+    flex-wrap: wrap; /* allowed to wrap */
+    justify-content: center; /* centered horizontally */
+    align-items: center; /* centered vertically */
+  }
+
+/* gallery */
+.gallery{
+    display: flex; /* display in flex */
+    flex-wrap: wrap; 
+    justify-content: center;
+}
+
+
+/* gallery's image */
+/* style gallery's image according to instructions */
+.gallery img{
+    border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* The following css are for when the screen-size is greater than 900px */
+@media screen and (min-width: 900px) {
+    header{
+        justify-content: space-between; /*logo to the left and the links to the right*/
+        align-items: center; 
+        flex-direction: row;
+    }
+    .nav_links{
+        flex-direction: row; /* nav_links alligned horizontally */
+    }
+    .pricing{
+        align-items: center;
+    }
+    .card{
+        flex-basis: 275px; /*flex-basis is reduced to 275px for consistent width across all cards*/
+    }
+    /* the first header */
+    body > header{
+        position: sticky; /* ensure the first header always visible */
+        top: 0; /* ensure the first header always visible on the top */
+    }
+
+}
+
+ /*The following css are for when the user prefers reduced motion */
+@media all and (prefers-reduced-motion: reduce) {
+    #logo {
+      animation: none; /* cancel the animation */
+    }
+  }
+
+/*The following css are for when the page is printed in portrait mode*/
+@media print{
+    /* change the style of body according to instructions */
+    body {
+        font-family: Arial, Helvetica;
+        background-image: none; /* remove the background image */
+      }
+
+    /* enable nav_links to be spaced around */
+    nav{
+        width: 100%;
+    }
+    
+    .nav_links{
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around; 
+
+    }
+    .pricing{
+        flex-wrap: nowrap; 
+        align-items: end; /* aligns along the bottom*/
+    }
+    /* set cards' border and flex-basis according to instructions*/
+    .card { 
+        border: 2px solid #45ADDD; 
+        flex-basis: 325px;
+      }
+    /* make gallery invisible*/
+    .gallery{
+        display: none;
+    }
+    /* add the thumb */
+    .card li:nth-child(2)::after {
+        content: "👍";
+      }
+
+
+}
+
+
